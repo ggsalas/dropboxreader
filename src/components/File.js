@@ -99,6 +99,100 @@ const FileComponent = props => {
           ? image
           : videoExt.indexOf(fileExt) >= 0 ? video : iframe}
       </CSSTransitionGroup>
+
+      <style jsx>{`
+        .siteFile {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.75);
+        }
+        .siteFile-menu {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+          justify-content: space-between;
+          height: 60px;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          padding: 0 10px;
+        }
+        .siteFile-preview {
+          position: absolute;
+          width: 100vw;
+          height: calc(100vh - 60px);
+          overflow: hidden;
+        }
+        .siteFile-iframe,
+        .siteFile-image,
+        .siteFile-video {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 100%;
+          border: none;
+          margin: 0 auto;
+          display: block;
+        }
+        .siteFile-image,
+        .siteFile-video {
+          width: auto;
+          max-width: 100%;
+          height: auto;
+          max-height: 100%;
+        }
+        .siteFile-iframe {
+          width: 100%;
+        }
+        .siteFile-preview-enter {
+          opacity: 0;
+          z-index: -1;
+          margin-top: 100vh;
+          -webkit-transition-delay: 1s;
+          transition-delay: 1s;
+          -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+          -webkit-transition-timing-function: ease-in;
+          transition-timing-function: ease-in;
+        }
+        .siteFile-preview-enter-active {
+          opacity: 1;
+          margin-top: 0;
+        }
+        .siteFile-preview-leave {
+          -webkit-transition-duration: 0.2s;
+          transition-duration: 0.2s;
+          -webkit-transition-timing-function: ease-out;
+          transition-timing-function: ease-out;
+        }
+        .siteFile-preview-leave-active {
+          opacity: 0;
+          top: 60px;
+        }
+        .button {
+          color: #000;
+          text-decoration: none;
+          background: #eee;
+          padding: 0.5em 1em;
+          border: none;
+          font-size: 16px;
+          font-weight: bold;
+          cursor: pointer;
+        }
+        .button:hover {
+          background: #00f;
+          color: #fff;
+        }
+        .button-close::before {
+          content: '\00d7';
+        }
+      `}</style>
     </div>
   )
 }

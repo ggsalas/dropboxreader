@@ -31,8 +31,12 @@ function FolderCtrl(WrappedComponent) {
     }
 
     handleEntryClick = ({ tag, entryId, path, name } = {}) => {
+      const { DropBoxAccesToken } = this.props
+
       if (tag === 'folder') {
-        entriesFor({ path }).then(entries => this.setState({ entries, path }))
+        entriesFor({ path, DropBoxAccesToken }).then(entries =>
+          this.setState({ entries, path })
+        )
       } else if (tag === 'file') {
         this.setState({ fileId: entryId })
       }

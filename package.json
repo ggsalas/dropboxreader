@@ -20,7 +20,8 @@
   },
   "dependencies": {
     "react-transition-group": "^1.2.1",
-    "recompose": "^0.26.0"
+    "recompose": "^0.26.0",
+    "styled-jsx": "^2.2.6"
   },
   "peerDependencies": {
     "react": "16.x"
