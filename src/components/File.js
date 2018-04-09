@@ -104,8 +104,6 @@ const FileComponent = props => {
 }
 
 // Compose with HOC
-const File = compose(
-  FileCtrl
-)(FileComponent)
+const File = compose(FileCtrl)(FileComponent)
 
 export default File
